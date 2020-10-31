@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-
-
 class Comments extends Component {
 
   state = {
@@ -28,7 +26,7 @@ class Comments extends Component {
       <div className="commentsWrap">
       <p className="surveyQuestion">Any comments you want to leave?</p>
       <input onChange={this.handleChange}/>
-      <button>Submit Feedback</button>
+      <button onClick={this.handleSubmit} >Submit Feedback</button>
       </div>
     );
   }

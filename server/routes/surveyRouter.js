@@ -8,6 +8,7 @@ router.post('/',  (req, res) => {
                    VALUES ($1, $2, $3, $4);`;
   pool.query(queryText, surveyResult)
     .then(result => {
+      console.log(result);
       res.sendStatus(201);
     })
     .catch(error => {

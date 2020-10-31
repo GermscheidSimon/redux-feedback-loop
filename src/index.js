@@ -5,6 +5,7 @@ import registerServiceWorker from './registerServiceWorker';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux'; 
 import logger from 'redux-logger';
+import {postResult} from './feedbackLibrary/axiosFunctions'
 //Component
 import App from './components/App/App';
 //Misc
@@ -18,7 +19,7 @@ const surveyDataReduce = (state={
 }, action) => {
    if(action.type === "SET_SURVEY_ANSWER"){
        return {...state, [action.payload.question]: action.payload.answer}
-   }
+   } 
     return state;
 }
 
