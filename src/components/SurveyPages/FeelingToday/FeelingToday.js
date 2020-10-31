@@ -29,7 +29,7 @@ class FeelingToday extends Component {
         <div className="feelingTodayWrap">
           <p className="surveyQuestion">How are you feeling today?</p>
           <input onChange={this.handleChange}/>
-          <NextBtn srcComponent={this} destination="/understand"/>
+          <NextBtn srcComponent={this} destination="/understand" onClick={this.handleSubmit}/>
         </div>
     );
   }

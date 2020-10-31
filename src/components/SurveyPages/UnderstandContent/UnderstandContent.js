@@ -31,7 +31,7 @@ class UnderstandContent extends Component {
       <div className="understandContent">
       <p className="surveyQuestion">How well do you undertand the content?</p>
       <input onChange={this.handleChange}/>
-      <NextBtn srcComponent={this} destination="/supported"/>
+      <NextBtn srcComponent={this} destination="/supported" onClick={this.handleSubmit}/>
     </div>
     );
   }
