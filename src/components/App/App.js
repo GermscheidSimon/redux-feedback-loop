@@ -1,6 +1,5 @@
 // dependecies
 import React, { Component } from 'react';
-import axios from 'axios';
 import {HashRouter as Router, Route, Link, withRouter} from 'react-router-dom'
 //Components
 import Header from '../Header/Header'

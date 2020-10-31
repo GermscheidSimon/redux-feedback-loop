@@ -1,4 +1,4 @@
-const util ={
+const navigation = {
     pushToNextRoute: (Destination, srcComponent) => {
         console.log('routed');
         
@@ -6,4 +6,4 @@ const util ={
     }
 }
 
-module.exports = util;
+module.exports = navigation;

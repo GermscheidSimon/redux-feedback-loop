@@ -1,4 +1,7 @@
+const express = require('express');
+const router = express.Router();
 
+const pool = require('../modules/pool');
 
 router.post('/',  (req, res) => {
   let surveyResult = req.body;
@@ -16,3 +19,4 @@ router.post('/',  (req, res) => {
       res.sendStatus(500);
     });
 });
+module.exports = router;

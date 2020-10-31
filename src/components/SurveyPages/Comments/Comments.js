@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import navigation from '../../../feedbackLibrary/axiosFunctions'
+import {connect} from 'react-redux'
 
 class Comments extends Component {
 
@@ -26,10 +28,13 @@ class Comments extends Component {
       <div className="commentsWrap">
       <p className="surveyQuestion">Any comments you want to leave?</p>
       <input onChange={this.handleChange}/>
-      <button onClick={this.handleSubmit} >Submit Feedback</button>
+      <button onClick={navigation.postResult(this.props.reduxStore.surveyDataReduce)} onClick={this.handleSubmit} >Submit Feedback</button>
       </div>
     );
   }
 }
 
-export default Comments;
+const putReduxStateOnProps = (reduxStore) => ({
+  reduxStore
+})
+export default connect(putReduxStateOnProps)(Comments);
