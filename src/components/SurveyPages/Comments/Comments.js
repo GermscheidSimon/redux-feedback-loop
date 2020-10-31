@@ -6,7 +6,7 @@ class Comments extends Component {
   render() {
     return (
       <div className="commentsWrap">
-      <p>Any comments you want to leave?</p>
+      <p className="surveyQuestion">Any comments you want to leave?</p>
       </div>
     );
   }

@@ -10,10 +10,21 @@ import App from './components/App/App';
 //Misc
 import './index.css';
 
+const surveyDataReduce = (state={
+    feelingToday: 0,
+    understand: 0,
+    supported: 0,
+    comments: ''
+}, action) => {
+   if(action.type === "SET_SURVEY_ANSWER"){
+       return {...state, [action.payload.question]: action.payload.answer}
+   }
+    return state;
+}
 
 const reduxStore = createStore(
     combineReducers({
-      
+        surveyDataReduce,
     }),
     applyMiddleware(logger)
   );
