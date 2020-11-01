@@ -1,6 +1,8 @@
 import axios from 'axios'
     const axiosFunctions = {
         postResult: (surveyResultObj) => {
+            console.log('from POST axios');
+            console.log(surveyResultObj)
             axios({
                 method: 'POST',
                 url: '/survey',

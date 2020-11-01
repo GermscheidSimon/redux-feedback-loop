@@ -17,7 +17,7 @@ class Feeling extends Component {
     console.log('test');
     let payloadData = {
       answer: this.state.input,
-      question: 'feelingToday'
+      question: 'feeling'
     }
     this.props.dispatch({
       type: "SET_SURVEY_ANSWER",

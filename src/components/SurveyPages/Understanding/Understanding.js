@@ -20,7 +20,7 @@ class Understanding extends Component {
     
     let payloadData = {
       answer: this.state.input,
-      question: 'understand'
+      question: 'understanding'
     }
     this.props.dispatch({
       type: "SET_SURVEY_ANSWER",
