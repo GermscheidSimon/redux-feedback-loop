@@ -25,9 +25,9 @@ class Comments extends Component {
 
   render() {
     return (
-      <div className="commentsWrap">
+      <div className="questionWrap">
       <p className="surveyQuestion">Any comments you want to leave?</p>
-      <input onChange={this.handleChange}/>
+      <textarea onChange={this.handleChange}/>
       <button onClick={this.handleSubmit} >Review Survey</button>
       </div>
     );

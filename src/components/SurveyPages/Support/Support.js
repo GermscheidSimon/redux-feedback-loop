@@ -33,9 +33,10 @@ class Support extends Component {
 
   render() {
     return (
-      <div className="supportedWrap">
+      <div className="questionWrap">
       <p className="surveyQuestion">Do you feel supported?</p>
-      <input onChange={this.handleChange}/>
+      <label htmlFor="inputField">Please enter a rating between 0 and 5:   </label>
+      <input type="number" className="inputField" onChange={this.handleChange}/>
       <button onClick={this.handleSubmit}>Next</button>
       </div>
     );

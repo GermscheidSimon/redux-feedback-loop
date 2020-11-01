@@ -17,7 +17,8 @@ import './App.css';
 class App extends Component {
 
   render() {
-    return ( 
+    return (
+      <div className="appWrap">
       <Router>
         <Header/>
 
@@ -28,6 +29,7 @@ class App extends Component {
         <Route path="/review" component={ReviewSurvey}/>
         <Route path="/confirmation" component={Confirmation}/>
       </Router>
+      </div>
     );
   }
 }

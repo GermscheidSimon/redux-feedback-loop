@@ -33,9 +33,10 @@ class Feeling extends Component {
 
   render() {
     return (
-        <div className="feelingTodayWrap">
+        <div className="questionWrap">
           <p className="surveyQuestion">How are you feeling today?</p>
-          <input onChange={this.handleChange}/>
+          <label htmlFor="inputField">Please enter a rating between 0 and 5:   </label>
+          <input type="number"  className="inputField" onChange={this.handleChange}/>
           <button onClick={this.handleSubmit}>Next</button>
         </div>
     );

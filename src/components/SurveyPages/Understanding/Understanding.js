@@ -35,9 +35,10 @@ class Understanding extends Component {
 
   render() {
     return (
-      <div className="understandContent">
+      <div className="questionWrap">
       <p className="surveyQuestion">How well do you undertand the content?</p>
-      <input onChange={this.handleChange}/>
+      <label htmlFor="inputField">Please enter a rating between 0 and 5:   </label>
+      <input type="number" className="inputField" onChange={this.handleChange}/>
       <button onClick={this.handleSubmit}>Next</button>
     </div>
     );
