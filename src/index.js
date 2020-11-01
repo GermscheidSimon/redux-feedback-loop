@@ -10,7 +10,7 @@ import App from './components/App/App';
 //Misc
 import './index.css';
 
-const surveyDataReduce = (state={
+const surveyDataReduce = (state={ // initial state defined for clarity
     feeling: 0,
     understanding: 0,
     support: 0,

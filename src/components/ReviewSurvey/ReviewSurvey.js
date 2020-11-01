@@ -5,7 +5,7 @@ import axios from 'axios'
 
 class ReviewSurvey extends Component{
 
-    postResult = (surveyResultObj) => {
+    postResult = (surveyResultObj) => { //axios POST request to send data to server
         console.log('from POST axios');
         console.log(surveyResultObj)
         axios({
@@ -14,7 +14,7 @@ class ReviewSurvey extends Component{
             data: surveyResultObj
         }).then( (response) => {
             console.log(response);
-            pushToNextRoute("/confirmation", this);
+            pushToNextRoute("/confirmation", this); // if the form was sent successfully, push props.history to confirmaiton page.
         }).catch( (error) => {
             console.log(error);
             alert('Submission failed. Please try again')
@@ -27,7 +27,7 @@ class ReviewSurvey extends Component{
     }
 
     render(){
-        const surveyResults = this.props.reduxStore.surveyDataReduce
+        const surveyResults = this.props.reduxStore.surveyDataReduce // created to just cleanup code below
         return(
             <div>
                 <p>Feeling Today:{surveyResults.feeling}</p>

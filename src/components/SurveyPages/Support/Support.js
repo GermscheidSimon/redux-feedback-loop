@@ -6,7 +6,7 @@ import navigation from '../../../feedbackLibrary/pushToNextRoute';
 class Support extends Component {
 
   state = {
-    input: -1
+    input: -1 // default state of an 'invalid' input to make sure the user sets a value before hitting next 
   }
   handleChange = (event) => {
     this.setState({
@@ -14,7 +14,7 @@ class Support extends Component {
     });
   }
   handleSubmit = () => {
-    let inputIsValid = this.state.input >= 0 && this.state.input <= 5
+    let inputIsValid = this.state.input >= 0 && this.state.input <= 5 // abstracted into a variable for clarity 
 
     if (inputIsValid) {
       let payloadData = {

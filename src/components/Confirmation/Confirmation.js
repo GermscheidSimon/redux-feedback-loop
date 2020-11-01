@@ -7,9 +7,9 @@ class Confirmation extends Component{
 
     handleSurveyRestart = () => {
         this.clearSuveyData();
-        navaigation.pushToNextRoute('/', this)
+        navaigation.pushToNextRoute('/', this) // push to first survey page.
     }
-    clearSuveyData = () => {
+    clearSuveyData = () => { // dispatch clear data request
         this.props.dispatch({
             type: "CLEAR_DATA"
         })
