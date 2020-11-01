@@ -6,7 +6,7 @@ import navigation from '../../../feedbackLibrary/pushToNextRoute'
 class Feeling extends Component {
 
   state = {
-    input: ''
+    input: -1
   }
   handleChange = (event) => {
     this.setState({
@@ -14,16 +14,21 @@ class Feeling extends Component {
     });
   }
   handleSubmit = () => {
-    console.log('test');
-    let payloadData = {
-      answer: this.state.input,
-      question: 'feeling'
+    let inputIsValid = this.state.input >= 0 && this.state.input <= 5
+
+    if (inputIsValid) {
+      let payloadData = {
+        answer: this.state.input,
+        question: 'feeling'
+      }
+      this.props.dispatch({
+        type: "SET_SURVEY_ANSWER",
+        payload: payloadData
+      })
+      navigation.pushToNextRoute('/understanding', this)
+    } else {
+      alert('Please enter a rating between 0 and 5')
     }
-    this.props.dispatch({
-      type: "SET_SURVEY_ANSWER",
-      payload: payloadData
-    })
-    navigation.pushToNextRoute('/understanding', this)
   }
 
   render() {
@@ -31,7 +36,6 @@ class Feeling extends Component {
         <div className="feelingTodayWrap">
           <p className="surveyQuestion">How are you feeling today?</p>
           <input onChange={this.handleChange}/>
-          <button></button>
           <button onClick={this.handleSubmit}>Next</button>
         </div>
     );

@@ -7,7 +7,7 @@ import navigation from '../../../feedbackLibrary/pushToNextRoute'
 class Understanding extends Component {
 
   state ={
-    input: ''
+    input: -1
   }
 
   handleChange = (event) => {
@@ -16,17 +16,21 @@ class Understanding extends Component {
     });
   }
   handleSubmit = () => {
-    console.log('test');
-    
-    let payloadData = {
-      answer: this.state.input,
-      question: 'understanding'
+    let inputIsValid = this.state.input >= 0 && this.state.input <= 5
+
+    if (inputIsValid) {
+      let payloadData = {
+        answer: this.state.input,
+        question: 'understanding'
+      }
+      this.props.dispatch({
+        type: "SET_SURVEY_ANSWER",
+        payload: payloadData
+      })
+      navigation.pushToNextRoute('/support', this)
+    } else {
+      alert('Please enter a rating between 0 and 5')
     }
-    this.props.dispatch({
-      type: "SET_SURVEY_ANSWER",
-      payload: payloadData
-    })
-    navigation.pushToNextRoute('/support', this)
   }
 
   render() {
