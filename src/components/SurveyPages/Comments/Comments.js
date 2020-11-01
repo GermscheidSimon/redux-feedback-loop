@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
-import axiosFunctions from '../../../feedbackLibrary/axiosFunctions';
-
+import navigation from '../../../feedbackLibrary/pushToNextRoute'
 class Comments extends Component {
 
   state = {
@@ -21,7 +20,7 @@ class Comments extends Component {
       type: "SET_SURVEY_ANSWER",
       payload: payloadData
     });
-    axiosFunctions.postResult(this.props.reduxStore.surveyDataReduce)
+    navigation.pushToNextRoute('/review', this)
   }
 
   render() {
@@ -29,7 +28,7 @@ class Comments extends Component {
       <div className="commentsWrap">
       <p className="surveyQuestion">Any comments you want to leave?</p>
       <input onChange={this.handleChange}/>
-      <button onClick={this.handleSubmit} >Submit Feedback</button>
+      <button onClick={this.handleSubmit} >Review Survey</button>
       </div>
     );
   }
