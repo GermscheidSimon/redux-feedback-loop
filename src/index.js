@@ -19,8 +19,15 @@ const surveyDataReduce = (state={
    if(action.type === "SET_SURVEY_ANSWER"){
        console.log(state);
        return {...state, [action.payload.question]: action.payload.answer}
-   } 
-    return state;
+   } else if (action.type === "CLEAR_DATA") {
+       return { // reset to initial state. 
+        feeling: 0,
+        understanding: 0,
+        support: 0,
+        comments: ''
+        };
+   }
+   return state;
 }
 
 const reduxStore = createStore(

@@ -1,12 +1,29 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
-import axiosFunctions from '../feedbackLibrary/axiosFunctions'
+import {pushToNextRoute} from '../../feedbackLibrary/pushToNextRoute'
+import axios from 'axios'
 
 class ReviewSurvey extends Component{
 
+    postResult = (surveyResultObj) => {
+        console.log('from POST axios');
+        console.log(surveyResultObj)
+        axios({
+            method: 'POST',
+            url: '/survey',
+            data: surveyResultObj
+        }).then( (response) => {
+            console.log(response);
+            pushToNextRoute("/confirmation", this);
+        }).catch( (error) => {
+            console.log(error);
+            alert('Submission failed. Please try again')
+        });
+    }
+
     submitform = () => {
         console.log(this.props.reduxStore.surveyDataReduce);
-        axiosFunctions.postResult(this.props.reduxStore.surveyDataReduce)
+        this.postResult(this.props.reduxStore.surveyDataReduce)
     }
 
     render(){

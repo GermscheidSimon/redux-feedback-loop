@@ -7,9 +7,11 @@ import Feeling from '../SurveyPages/Feeling/Feeling';
 import Understanding from '../SurveyPages/Understanding/Understanding'
 import Support from '../SurveyPages/Support/Support'
 import Comments from '../SurveyPages/Comments/Comments';
+import ReviewSurvey from '../ReviewSurvey/ReviewSurvey';
+import Confirmation from '../Confirmation/Confirmation';
 //Misc
 import './App.css';
-import ReviewSurvey from '../../ReviewSurvey/ReviewSurvey';
+
 
 
 class App extends Component {
@@ -24,6 +26,7 @@ class App extends Component {
         <Route path="/support" component={Support}/>
         <Route path="/comments" component={Comments}/>
         <Route path="/review" component={ReviewSurvey}/>
+        <Route path="/confirmation" component={Confirmation}/>
       </Router>
     );
   }
