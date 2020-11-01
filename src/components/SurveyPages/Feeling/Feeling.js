@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import NextBtn from '../../NextBtn/NextBtn'
 import {connect} from 'react-redux'
+import navigation from '../../../feedbackLibrary/pushToNextRoute'
 
 
-class FeelingToday extends Component {
+class Feeling extends Component {
 
   state = {
     input: ''
@@ -14,14 +14,16 @@ class FeelingToday extends Component {
     });
   }
   handleSubmit = () => {
+    console.log('test');
     let payloadData = {
       answer: this.state.input,
       question: 'feelingToday'
     }
-    this.dispatch({
+    this.props.dispatch({
       type: "SET_SURVEY_ANSWER",
       payload: payloadData
     })
+    navigation.pushToNextRoute('/understanding', this)
   }
 
   render() {
@@ -29,7 +31,8 @@ class FeelingToday extends Component {
         <div className="feelingTodayWrap">
           <p className="surveyQuestion">How are you feeling today?</p>
           <input onChange={this.handleChange}/>
-          <NextBtn srcComponent={this} destination="/understand" onClick={this.handleSubmit}/>
+          <button></button>
+          <button onClick={this.handleSubmit}>Next</button>
         </div>
     );
   }
@@ -37,4 +40,4 @@ class FeelingToday extends Component {
 const putReduxStateOnProps = (reduxStore) => ({
   reduxStore
 })
-export default connect(putReduxStateOnProps)(FeelingToday);
+export default connect(putReduxStateOnProps)(Feeling);

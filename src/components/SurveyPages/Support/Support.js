@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import NextBtn from '../../NextBtn/NextBtn'
+import { connect } from 'react-redux'
+import navigation from '../../../feedbackLibrary/pushToNextRoute';
 
 
-class Supported extends Component {
+class Support extends Component {
 
   state = {
     input: ''
@@ -15,12 +16,13 @@ class Supported extends Component {
   handleSubmit = () => {
     let payloadData = {
       answer: this.state.input,
-      question: 'supported'
+      question: 'support'
     }
-    this.dispatch({
+    this.props.dispatch({
       type: "SET_SURVEY_ANSWER",
       payload: payloadData
     })
+    navigation.pushToNextRoute('/comments', this)
   }
 
   render() {
@@ -28,10 +30,13 @@ class Supported extends Component {
       <div className="supportedWrap">
       <p className="surveyQuestion">Do you feel supported?</p>
       <input onChange={this.handleChange}/>
-      <NextBtn srcComponent={this} destination="/comments" onClick={this.handleSubmit}/>
+      <button onClick={this.handleSubmit}>Next</button>
       </div>
     );
   }
 }
 
-export default Supported;
+const putReduxStateOnProps = (reduxStore) => ({
+  reduxStore
+})
+export default connect(putReduxStateOnProps)(Support);

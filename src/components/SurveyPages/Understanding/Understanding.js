@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import NextBtn from '../../NextBtn/NextBtn';
 import {connect} from 'react-redux'
+import navigation from '../../../feedbackLibrary/pushToNextRoute'
 
 
 
-class UnderstandContent extends Component {
+class Understanding extends Component {
 
   state ={
     input: ''
@@ -16,14 +16,17 @@ class UnderstandContent extends Component {
     });
   }
   handleSubmit = () => {
+    console.log('test');
+    
     let payloadData = {
       answer: this.state.input,
       question: 'understand'
     }
-    this.dispatch({
+    this.props.dispatch({
       type: "SET_SURVEY_ANSWER",
       payload: payloadData
     })
+    navigation.pushToNextRoute('/support', this)
   }
 
   render() {
@@ -31,7 +34,7 @@ class UnderstandContent extends Component {
       <div className="understandContent">
       <p className="surveyQuestion">How well do you undertand the content?</p>
       <input onChange={this.handleChange}/>
-      <NextBtn srcComponent={this} destination="/supported" onClick={this.handleSubmit}/>
+      <button onClick={this.handleSubmit}>Next</button>
     </div>
     );
   }
@@ -40,4 +43,4 @@ class UnderstandContent extends Component {
 const putReduxStateOnProps = (reduxStore) => ({
   reduxStore
 })
-export default connect(putReduxStateOnProps)(UnderstandContent);
+export default connect(putReduxStateOnProps)(Understanding);
